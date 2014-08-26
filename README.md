@@ -7,6 +7,6 @@ Usage:
 
 make: to compile wargame (aka main)
 
-run: to run the game
+make wargame: to run the game
 
-clean: to clean the project
+make clean: to clean the project

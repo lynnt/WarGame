@@ -16,7 +16,7 @@ class Card {
 
   public:
     Card();
-    int getValue();
+    int getRank(Card c){};
     int getCard();
 };
 
@@ -30,9 +30,6 @@ class Deck {
 
 class Hand {
   public:
-    void addCard(Card c);
-    void removeCard(Card c);
-    void removeCard(int position);
     int getCardsCount();
     void showHand(Card c);
 };
