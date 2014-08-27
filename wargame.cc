@@ -98,12 +98,11 @@ class Deck {
     void shuffle();
     void dealCard(queue<int> deck){
       while(!deck.empty()){
-        A.push(deck.pop());
-        B.push(deck.pop());
+        A.push(deck.front());
+        deck.pop();
+        B.push(deck.front());
+        deck.pop();
       }
-    };
-    void playCard(queue<int> A, queue<int> B){
-
     };
   private:
     queue<int> DeckQ;
@@ -113,8 +112,12 @@ class Deck {
 
 class Hand {
   public:
-    int getCardsCount();
-    void showHand(Card c);
+    int getCardsCount(queue<int> stack){
+      return stack.size();
+    };
+    int showHand(queue<int> c){
+      return c.front();
+    };
 };
 
 
