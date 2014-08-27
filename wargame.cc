@@ -90,13 +90,25 @@ class Card {
 
 class Deck {
   public:
-    Deck(){
-      queue<int> A, B;
+    Deck(queue<int> deck, queue<int> a, queue<int> b){
+      DeckQ = deck;
+      A = a;
+      B = b;
     };
     void shuffle();
-    void dealCard(queue<int> Deck){
+    void dealCard(queue<int> deck){
+      while(!deck.empty()){
+        A.push(deck.pop());
+        B.push(deck.pop());
+      }
     };
-    void playCard();
+    void playCard(queue<int> A, queue<int> B){
+
+    };
+  private:
+    queue<int> DeckQ;
+    queue<int> A;
+    queue<int> B;
 };
 
 class Hand {
