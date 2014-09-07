@@ -5,7 +5,8 @@
  */
 #include<string>
 #include<iostream>
-#include<queue>
+#include<deque>
+#include<algorithm>
 #define DECKSIZE 52
 
 using namespace std;
@@ -90,36 +91,40 @@ class Card {
 
 class Deck {
   public:
-    Deck(queue<int> deck, queue<int> a, queue<int> b){
+    Deck(deque<int> deck, deque<int> a, deque<int> b){
       DeckQ = deck;
       A = a;
       B = b;
     };
-    void shuffle();
-    void dealCard(queue<int> deck){
+    void shuffle(deque<int> DeckQ){
+        random_shuffle(DeckQ.begin(), DeckQ.end());
+    };
+    void dealCard(deque<int> deck){
       while(!deck.empty()){
-        A.push(deck.front());
-        deck.pop();
-        B.push(deck.front());
-        deck.pop();
+        A.push_back(deck.front());
+        deck.pop_front();
+        B.push_back(deck.front());
+        deck.pop_back();
       }
     };
   private:
-    queue<int> DeckQ;
-    queue<int> A;
-    queue<int> B;
+    deque<int> DeckQ;
+    deque<int> A;
+    deque<int> B;
 };
 
 class Hand {
   public:
-    int getCardsCount(queue<int> stack){
+    int getCardsCount(deque<int> stack){
       return stack.size();
     };
-    int showHand(queue<int> c){
+    int showHand(deque<int> c){
       return c.front();
     };
 };
 
 
 int main(){
+  Deck deck;
+  Hand A, B;
 }
